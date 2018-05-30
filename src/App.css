@@ -1,0 +1,46 @@
+.App {
+  text-align: center;
+}
+
+
+
+.App-header {
+  background-color: #222;
+  height: 15vh;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.form {
+  padding: 20px;
+}
+
+.form input {
+  margin:5px;
+}
+
+.bill{
+  padding: 5px;
+  height: 50vh;
+  margin-right: 40vw;
+  margin-left: 40vw;
+  background: red;
+}
+
+.bill .detail {
+  height: 34vh;
+  text-align: left;
+}
+
+p span {
+   margin-right: 10px; 
+}
+
+.App-intro {
+  
+}
+
