@@ -16,7 +16,6 @@ export default class List extends Component {
 
 
 total(name, price, number){
-   console.log('woww', name, price, number);
       if (name !== 'Papayas') {
           return price *number;
       } else {

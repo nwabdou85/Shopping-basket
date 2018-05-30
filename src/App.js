@@ -53,7 +53,7 @@ class App extends Component {
     }else {
       //in the case of empty basket, return 0 euro
       return 0;
-    };
+    }
    }
 
 
@@ -62,7 +62,7 @@ class App extends Component {
          return  <List informations = {this.state.Items} />
     } else {
        return "Please, add one or more porducts";
-    };
+    }
    }
 
  
@@ -79,19 +79,25 @@ class App extends Component {
 
 
  handleAdd(){
-    let obj = {name:this.state.name, price:this.state.price, number:1}
+    let name = !!this.state.name?this.state.name:'Apples';
+    let price  = !!this.state.price ? this.state.price:0.25;
+
+    let obj = {name:name, price:price, number:1}
+
     // insert products
-    if (!!this.state.Items.length && !!this.state.name) {
+    if (!!this.state.Items.length) {
        // if is not empty, I should update the state
          
+
          let result = this.state.Items.filter(function( obj, i ) {
-            return obj.name === this.state.name;
-          }.bind(this));
+            return obj.name === name;
+          });
            
          // find the index of product
          let index;
          for (var i = 0; i < this.state.Items.length; i++) {
-              if (this.state.Items[i].name === this.state.name) { index = i};
+
+              if (this.state.Items[i].name === name) { index = i};
          };
           
         if (!!result.length) {
@@ -109,7 +115,7 @@ class App extends Component {
               })
           };
 
-    } else if(!this.state.Items.length && !!this.state.name) {
+    } else {
       //if the Items is empty, insert the selected  product without verification 
       this.setState({
          Items: [...this.state.Items, obj]
@@ -121,13 +127,12 @@ class App extends Component {
 
 
 handleRemove(){
+    let name = !!this.state.name?this.state.name:'Apples';
 
-  let obj = {name:this.state.name, price:this.state.price, number:1}
-
-  if (!!this.state.Items.length && !!this.state.name) {
+  if (!!this.state.Items.length) {
       let result = this.state.Items.filter(function( obj, i ) {
-            return obj.name === this.state.name;
-          }.bind(this));
+            return obj.name === name;
+          });
 
       if (!!result.length) {
          // verify that the product is selected 
@@ -136,7 +141,7 @@ handleRemove(){
           // if selected, find the index of it  
           let index;
              for (var i = 0; i < this.state.Items.length; i++) {
-                  if (this.state.Items[i].name === this.state.name) { index = i};
+                  if (this.state.Items[i].name === name) { index = i};
              };
          
          // if the product selected more than one , decrease the number, else remove it
@@ -172,7 +177,6 @@ handleRemove(){
           <h3>Black friday: three Papayas for the price of two</h3>
         </header>
         <div className="form">
-        <p style={{fontSize:9}}>Please, select the fruit you want add to your basket before click on +, even the first one </p>
           <select onClick={this.handleSelectChange}>
              {this.renderOption()}
           </select>
