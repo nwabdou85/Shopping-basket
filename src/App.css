@@ -6,7 +6,7 @@
 
 .App-header {
   background-color: #222;
-  height: 15vh;
+  height: 25vh;
   padding: 20px;
   color: white;
 }
@@ -25,9 +25,9 @@
 
 .bill{
   padding: 5px;
-  height: 50vh;
-  margin-right: 40vw;
-  margin-left: 40vw;
+  height: 60vh;
+  margin-right: 10vw;
+  margin-left: 10vw;
   background: red;
 }
 
@@ -43,4 +43,25 @@ p span {
 .App-intro {
   
 }
+
+
+
+
+@media screen and (min-width: 800px){
+
+  .bill{
+  padding: 5px;
+  height: 50vh;
+  margin-right: 40vw;
+  margin-left: 40vw;
+  background: red;
+}
+.App-header {
+  background-color: #222;
+  height: 15vh;
+  padding: 20px;
+  color: white;
+}
+}
+
 
